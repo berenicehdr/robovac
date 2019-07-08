@@ -10,4 +10,15 @@ describe('Room', function () {
     assert.strictEqual(room.y, 5)
     assert.strictEqual(room.x, 5)
   })
+
+  it('tracks its patches of dirt', function () {
+    let dimensions = { x: 5, y: 5 }
+    let dirtPatches = [
+      { x: 1, y: 0 },
+      { x: 2, y: 2 },
+      { x: 2, y: 3 }
+    ]
+    let room = new Room(dimensions, dirtPatches)
+    assert.strictEqual(room.dirtPatches, dirtPatches)
+  })
 })
