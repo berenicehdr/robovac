@@ -32,4 +32,13 @@ describe('Vacuum', function () {
     assert.strictEqual(vacuum.x, 1)
     assert.strictEqual(vacuum.y, 1)
   })
+
+  it('stops at 4,3 when "EEEENNN" its directions', function () {
+    let startPosition = { x: 0, y: 0 }
+    let drivingDirections = 'EEEENNN'
+    let vacuum = new Vacuum(startPosition, drivingDirections)
+    vacuum.start()
+    assert.strictEqual(vacuum.x, 4)
+    assert.strictEqual(vacuum.y, 3)
+  })
 })
