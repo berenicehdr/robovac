@@ -1,7 +1,8 @@
 class Vacuum {
-  constructor (startPosition) {
+  constructor (startPosition, drivingDirections = '') {
     this._x = startPosition.x
     this._y = startPosition.y
+    this._drivingDirections = drivingDirections.split('')
   }
 
   get x () {
@@ -10,6 +11,10 @@ class Vacuum {
 
   get y () {
     return this._y
+  }
+
+  get drivingDirections () {
+    return this._drivingDirections
   }
 }
 

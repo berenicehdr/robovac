@@ -10,4 +10,11 @@ describe('Vacuum', function () {
     assert.strictEqual(vacuum.x, 2)
     assert.strictEqual(vacuum.y, 4)
   })
+
+  it('converts its driving directions from a string into an array of directions', function () {
+    let drivingDirections = 'NESW'
+    let startPosition = { x: 2, y: 4 }
+    let vacuum = new Vacuum(startPosition, drivingDirections)
+    assert.deepStrictEqual(vacuum.drivingDirections, ['N', 'E', 'S', 'W'])
+  })
 })
