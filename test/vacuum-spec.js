@@ -23,4 +23,13 @@ describe('Vacuum', function () {
     let vacuum = new Vacuum(startPosition, drivingDirections)
     assert.deepStrictEqual(vacuum.drivingDirections, ['N', 'E', 'S', 'W'])
   })
+
+  it('stops at 1,1 when "NE" its directions', function () {
+    let startPosition = { x: 0, y: 0 }
+    let drivingDirections = 'NE'
+    let vacuum = new Vacuum(startPosition, drivingDirections)
+    vacuum.start()
+    assert.strictEqual(vacuum.x, 1)
+    assert.strictEqual(vacuum.y, 1)
+  })
 })
