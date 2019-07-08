@@ -11,6 +11,12 @@ describe('Vacuum', function () {
     assert.strictEqual(vacuum.y, 4)
   })
 
+  it('assumes a starting point of x: 0, y: 0 if none supplied', function () {
+    let vacuum = new Vacuum()
+    assert.strictEqual(vacuum.x, 0)
+    assert.strictEqual(vacuum.y, 0)
+  })
+
   it('converts its driving directions from a string into an array of directions', function () {
     let drivingDirections = 'NESW'
     let startPosition = { x: 2, y: 4 }

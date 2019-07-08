@@ -1,5 +1,5 @@
 class Vacuum {
-  constructor (startPosition, drivingDirections = '') {
+  constructor (startPosition = { x: 0, y: 0 }, drivingDirections = '') {
     this._x = startPosition.x
     this._y = startPosition.y
     this._drivingDirections = drivingDirections.split('')
