@@ -4,6 +4,11 @@ var assert = require('assert')
 var Vacuum = require('../src/vacuum')
 
 describe('Vacuum', function () {
+  let roomDirtPatches = [
+    { x: 5, y: 5 }
+  ]
+  let roomStub = { x: 5, y: 5, dirtPatches: roomDirtPatches }
+
   it('starts at an initial grid position (x, y)', function () {
     let startPosition = { x: 2, y: 4 }
     let vacuum = new Vacuum(startPosition)
@@ -27,7 +32,7 @@ describe('Vacuum', function () {
   it('stops at 1,1 when "NE" its directions', function () {
     let startPosition = { x: 0, y: 0 }
     let drivingDirections = 'NE'
-    let vacuum = new Vacuum(startPosition, drivingDirections)
+    let vacuum = new Vacuum(startPosition, drivingDirections, roomStub)
     vacuum.start()
     assert.strictEqual(vacuum.x, 1)
     assert.strictEqual(vacuum.y, 1)
@@ -36,7 +41,7 @@ describe('Vacuum', function () {
   it('stops at 4,3 when "EEEENNN" its directions', function () {
     let startPosition = { x: 0, y: 0 }
     let drivingDirections = 'EEEENNN'
-    let vacuum = new Vacuum(startPosition, drivingDirections)
+    let vacuum = new Vacuum(startPosition, drivingDirections, roomStub)
     vacuum.start()
     assert.strictEqual(vacuum.x, 4)
     assert.strictEqual(vacuum.y, 3)
@@ -45,14 +50,13 @@ describe('Vacuum', function () {
   it('stops at 0,0 when "NESW" its directions', function () {
     let startPosition = { x: 0, y: 0 }
     let drivingDirections = 'NESW'
-    let vacuum = new Vacuum(startPosition, drivingDirections)
+    let vacuum = new Vacuum(startPosition, drivingDirections, roomStub)
     vacuum.start()
     assert.strictEqual(vacuum.x, 0)
     assert.strictEqual(vacuum.y, 0)
   })
 
   it('does not go out of bounds (southern)', function () {
-    let roomStub = { x: 5, y: 5 }
     let startPosition = { x: 0, y: 0 }
     let drivingDirections = 'S'
     let vacuum = new Vacuum(startPosition, drivingDirections, roomStub)
@@ -62,7 +66,6 @@ describe('Vacuum', function () {
   })
 
   it('does not go out of bounds (northern)', function () {
-    let roomStub = { x: 5, y: 5 }
     let startPosition = { x: 0, y: 0 }
     let drivingDirections = 'NNNNN'
     let vacuum = new Vacuum(startPosition, drivingDirections, roomStub)
@@ -72,7 +75,6 @@ describe('Vacuum', function () {
   })
 
   it('does not go out of bounds (eastern)', function () {
-    let roomStub = { x: 5, y: 5 }
     let startPosition = { x: 4, y: 0 }
     let drivingDirections = 'E'
     let vacuum = new Vacuum(startPosition, drivingDirections, roomStub)
@@ -82,7 +84,6 @@ describe('Vacuum', function () {
   })
 
   it('does not go out of bounds (western)', function () {
-    let roomStub = { x: 5, y: 5 }
     let startPosition = { x: 0, y: 0 }
     let drivingDirections = 'W'
     let vacuum = new Vacuum(startPosition, drivingDirections, roomStub)

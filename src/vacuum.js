@@ -49,6 +49,7 @@ class Vacuum {
           break
       }
       this.enforceBounds()
+      this.checkForDirt()
     })
   }
 
@@ -57,6 +58,20 @@ class Vacuum {
     else if (this.x < 0) this.x = 0
     if (this.y >= this.room.y) this.y = this.room.y - 1
     else if (this.y < 0) this.y = 0
+  }
+
+  checkForDirt () {
+    let currPos = { x: this.x, y: this.y }
+    var index = 0
+
+    this.room.dirtPatches.forEach(dirtPatch => {
+      if (JSON.stringify(dirtPatch) == JSON.stringify(currPos)) {
+        console.log('delting patch at index ' + index)
+        this.room._dirtPatches.splice(index, 1)
+        this._patchesCleaned += 1
+      }
+      index += 1
+    })
   }
 }
 
