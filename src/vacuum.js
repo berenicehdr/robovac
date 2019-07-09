@@ -4,6 +4,7 @@ class Vacuum {
     this._y = startPosition.y
     this._drivingDirections = drivingDirections.split('')
     this._room = room
+    this._patchesCleaned = 0
   }
 
   get x () {
@@ -28,6 +29,10 @@ class Vacuum {
 
   get room () {
     return this._room
+  }
+
+  get patchesCleaned () {
+    return this._patchesCleaned
   }
 
   start () {
@@ -65,9 +70,8 @@ class Vacuum {
     var index = 0
 
     this.room.dirtPatches.forEach(dirtPatch => {
-      if (JSON.stringify(dirtPatch) == JSON.stringify(currPos)) {
-        console.log('delting patch at index ' + index)
-        this.room._dirtPatches.splice(index, 1)
+      if (JSON.stringify(dirtPatch) === JSON.stringify(currPos)) {
+        this.room.dirtPatches.splice(index, 1)
         this._patchesCleaned += 1
       }
       index += 1
