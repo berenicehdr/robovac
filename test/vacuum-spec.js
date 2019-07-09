@@ -70,4 +70,14 @@ describe('Vacuum', function () {
     assert.strictEqual(vacuum.y, 4)
     assert.strictEqual(vacuum.x, 0)
   })
+
+  it('does not go out of bounds (eastern)', function () {
+    let roomStub = { x: 5, y: 5 }
+    let startPosition = { x: 4, y: 0 }
+    let drivingDirections = 'E'
+    let vacuum = new Vacuum(startPosition, drivingDirections, roomStub)
+    vacuum.start()
+    assert.strictEqual(vacuum.y, 0)
+    assert.strictEqual(vacuum.x, 4)
+  })
 })
