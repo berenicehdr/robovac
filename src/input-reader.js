@@ -6,6 +6,7 @@ class InputReader {
     this._roomDimensions = {}
     this._vacuumStartPosition = {}
     this._drivingDirections = []
+    this._dirtPatchLocations = []
     this.getInput()
   }
 
@@ -19,6 +20,10 @@ class InputReader {
 
   get drivingDirections () {
     return this._drivingDirections
+  }
+
+  get dirtPatchLocations () {
+    return this._dirtPatchLocations
   }
 
   getInput () {
@@ -35,6 +40,12 @@ class InputReader {
     let drivingDirections = input[input.length - 1]
     this._drivingDirections = drivingDirections
     input.splice(input.length - 1, 1)
+
+    let dirtPatchLocations = []
+    input.forEach(position => {
+      dirtPatchLocations.push({ x: Number(position[0]), y: Number(position[2]) })
+    })
+    this._dirtPatchLocations = dirtPatchLocations
   }
 }
 

@@ -24,4 +24,15 @@ describe('InputReader', function () {
     let expectedDrivingDirections = 'NNESEESWNWW'
     assert.strictEqual(drivingDirections, expectedDrivingDirections)
   })
+
+  it('parses the dirt locations from the supplied input file', function () {
+    let input = new InputReader()
+    let dirtPatchLocations = input.dirtPatchLocations
+    let expectedDirtPatchLocations = [
+      { x: 1, y: 0 },
+      { x: 2, y: 2 },
+      { x: 2, y: 3 }
+    ]
+    assert.deepStrictEqual(dirtPatchLocations, expectedDirtPatchLocations)
+  })
 })
