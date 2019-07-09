@@ -1,8 +1,9 @@
 class Vacuum {
-  constructor (startPosition = { x: 0, y: 0 }, drivingDirections = '') {
+  constructor (startPosition = { x: 0, y: 0 }, drivingDirections = '', room = {}) {
     this._x = startPosition.x
     this._y = startPosition.y
     this._drivingDirections = drivingDirections.split('')
+    this._room = room
   }
 
   get x () {
@@ -25,6 +26,10 @@ class Vacuum {
     return this._drivingDirections
   }
 
+  get room () {
+    return this._room
+  }
+
   start () {
     this.drivingDirections.forEach(direction => {
       switch (direction.toUpperCase()) {
@@ -43,7 +48,15 @@ class Vacuum {
         default:
           break
       }
+      this.enforceBounds()
     })
+  }
+
+  enforceBounds () {
+    if (this.x >= this.room.x) this.x = this.room.x - 1
+    else if (this.x < 0) this.x = 0
+    if (this.y >= this.room.y) this.y = this.room.y - 1
+    else if (this.y < 0) this.y = 0
   }
 }
 
