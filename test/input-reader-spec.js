@@ -10,4 +10,11 @@ describe('InputReader', function () {
     let expectedRoomDimensions = JSON.stringify({ x: 5, y: 5 })
     assert.strictEqual(roomDimensions, expectedRoomDimensions)
   })
+
+  it('parses the vacuum start position from the supplied input file', function () {
+    let input = new InputReader()
+    let vacuumStartPosition = input.vacuumStartPosition
+    let expectedVacuumStartPosition = { x: 1, y: 2 }
+    assert.deepStrictEqual(vacuumStartPosition, expectedVacuumStartPosition)
+  })
 })
