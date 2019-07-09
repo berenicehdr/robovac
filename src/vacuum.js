@@ -36,6 +36,7 @@ class Vacuum {
   }
 
   start () {
+    this.checkForDirt()
     this.drivingDirections.forEach(direction => {
       switch (direction.toUpperCase()) {
         case 'N':

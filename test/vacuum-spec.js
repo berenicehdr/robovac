@@ -102,4 +102,15 @@ describe('Vacuum', function () {
     assert.deepStrictEqual(testRoomStub.dirtPatches, [])
     assert.strictEqual(vacuum.patchesCleaned, 1)
   })
+
+  it('checks for and cleans a dirt patch on starting', function () {
+    let dirt = [ { x: 2, y: 2 } ]
+    let testRoomStub = { x: 5, y: 5, dirtPatches: dirt }
+    let startPosition = { x: 2, y: 2 }
+    let drivingDirections = 'NN'
+    let vacuum = new Vacuum(startPosition, drivingDirections, testRoomStub)
+    vacuum.start()
+    assert.deepStrictEqual(testRoomStub.dirtPatches, [])
+    assert.strictEqual(vacuum.patchesCleaned, 1)
+  })
 })
