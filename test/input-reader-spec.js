@@ -4,29 +4,27 @@ var assert = require('assert')
 var InputReader = require('../src/input-reader')
 
 describe('InputReader', function () {
+  let input = new InputReader()
+
   it('parses the room dimesions from the supplied input file', function () {
-    let input = new InputReader()
     let roomDimensions =input.roomDimensions
     let expectedRoomDimensions = { x: 5, y: 5 }
     assert.deepStrictEqual(roomDimensions, expectedRoomDimensions)
   })
 
   it('parses the vacuum start position from the supplied input file', function () {
-    let input = new InputReader()
     let vacuumStartPosition = input.vacuumStartPosition
     let expectedVacuumStartPosition = { x: 1, y: 2 }
     assert.deepStrictEqual(vacuumStartPosition, expectedVacuumStartPosition)
   })
 
   it('parses the driving directions from the supplied input file', function () {
-    let input = new InputReader()
     let drivingDirections = input.drivingDirections
     let expectedDrivingDirections = 'NNESEESWNWW'
     assert.strictEqual(drivingDirections, expectedDrivingDirections)
   })
 
   it('parses the dirt locations from the supplied input file', function () {
-    let input = new InputReader()
     let dirtPatchLocations = input.dirtPatchLocations
     let expectedDirtPatchLocations = [
       { x: 1, y: 0 },
