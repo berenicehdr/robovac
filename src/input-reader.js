@@ -5,6 +5,7 @@ class InputReader {
     this._filename = filename
     this._roomDimensions = {}
     this._vacuumStartPosition = {}
+    this._drivingDirections = []
     this.getInput()
   }
 
@@ -14,6 +15,10 @@ class InputReader {
 
   get vacuumStartPosition () {
     return this._vacuumStartPosition
+  }
+
+  get drivingDirections () {
+    return this._drivingDirections
   }
 
   getInput () {
@@ -26,6 +31,10 @@ class InputReader {
     let vacuumStartPosition = input[0].split(' ')
     this._vacuumStartPosition = { x: Number(vacuumStartPosition[0]), y: Number(vacuumStartPosition[1]) }
     input.splice(0, 1)
+
+    let drivingDirections = input[input.length - 1]
+    this._drivingDirections = drivingDirections
+    input.splice(input.length - 1, 1)
   }
 }
 

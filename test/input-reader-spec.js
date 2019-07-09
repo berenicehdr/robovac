@@ -17,4 +17,11 @@ describe('InputReader', function () {
     let expectedVacuumStartPosition = { x: 1, y: 2 }
     assert.deepStrictEqual(vacuumStartPosition, expectedVacuumStartPosition)
   })
+
+  it('parses the driving directions from the supplied input file', function () {
+    let input = new InputReader()
+    let drivingDirections = input.drivingDirections
+    let expectedDrivingDirections = 'NNESEESWNWW'
+    assert.strictEqual(drivingDirections, expectedDrivingDirections)
+  })
 })
