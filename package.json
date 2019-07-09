@@ -9,7 +9,8 @@
   "author": "Andrew (acodeguy)",
   "license": "ISC",
   "dependencies": {
-    "mocha": "^6.1.4"
+    "mocha": "^6.1.4",
+    "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
     "eslint": "^6.0.1",
