@@ -44,18 +44,20 @@ The program will output as below
 Where the first line is the ending position of the vacuum, and the last line isthe number of patches cleaned.
 
 ## Dependecies
-*  Node v10.16.0
+* [Node v10.16.0](https://nodejs.org/)
 *  Mocha 6.1.4
 
 ## Getting Started
-Clone the repo to your hard drive, and install all dependencies:
+If you alread have Node.js installed, clone the repo to your hard drive, and install theproject dependencies (Mocha, etc):
 ```bash
 git clone: https://github.com/acodeguy/robovac.git
+
 cd robovac
+
 npm install
 ```
 
-Once all dependencies are installed, run it like this:
+Once all dependencies are installed and you have an input.txt file with valid layout in the root directory, run it like this:
 ```bash
 node robovac.js
 ```
@@ -70,4 +72,11 @@ mocha
 or
 ```bash
 npm test
+```
+
+In the case of the supplied example file (input.txt), RoboVac outputs the expected
+
+```
+1 3
+1
 ```
