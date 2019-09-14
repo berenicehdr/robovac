@@ -1,4 +1,4 @@
-var fs = require('fs')
+let fs = require('fs')
 
 class InputReader {
   constructor (filename = 'input.txt') {

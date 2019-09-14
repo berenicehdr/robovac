@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
-var assert = require('assert')
+let assert = require('assert')
 
-var Room = require('../src/room.js')
+let Room = require('../src/room.js')
 
 describe('Room', function () {
   it('has its max x and y values set on creation', function () {

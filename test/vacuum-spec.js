@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
-var assert = require('assert')
+let assert = require('assert')
 
-var Vacuum = require('../src/vacuum')
+let Vacuum = require('../src/vacuum')
 
 describe('Vacuum', function () {
   let roomDirtPatches = [

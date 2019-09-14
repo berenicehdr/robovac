@@ -68,7 +68,7 @@ class Vacuum {
 
   checkForDirt () {
     let currPos = { x: this.x, y: this.y }
-    var index = 0
+    let index = 0
 
     this.room.dirtPatches.forEach(dirtPatch => {
       if (JSON.stringify(dirtPatch) === JSON.stringify(currPos)) {

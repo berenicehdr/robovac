@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
-var assert = require('assert')
+let assert = require('assert')
 
-var InputReader = require('../src/input-reader')
+let InputReader = require('../src/input-reader')
 
 describe('InputReader', function () {
   let input = new InputReader()
