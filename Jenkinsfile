@@ -3,6 +3,7 @@ pipeline {
   stages {
     stage('snyk dependency scan') {  
                         steps {
+	      snykSecurity organisation: 'berenicehdr',
               snykSecurity projectName: 'project-js',
               severity: 'high',
               snykInstallation: 'SynkStep',
