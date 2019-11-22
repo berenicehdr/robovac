@@ -15,11 +15,11 @@ pipeline {
           snykTokenId: 'snyk',
           targetFile: 'https://github.com/berenicehdr/robovac.git',
           failOnIssues: 'true'
-
+           )
 	  sh '''
          snyk test
              '''
-        )		
+        
       }
     }
   }
