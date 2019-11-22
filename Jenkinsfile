@@ -7,8 +7,8 @@ pipeline {
       }	
       steps {
         snykSecurity(
-          snykInstallation:’SnykStep’
-          snykTokenId:’my-project-snyk-api-token’
+          snykInstallation:’SnykStep’,
+          snykTokenId:’my-project-snyk-api-token’,
           organisation: 'cloudbees',
           severity: 'high',
           snykInstallation: 'snyk-latest',
