@@ -7,12 +7,10 @@ pipeline {
       }	
       steps {
         snykSecurity(
-          snykInstallation:’SnykStep’,
-          snykTokenId:’my-project-snyk-api-token’,
           organisation: 'cloudbees',
           severity: 'high',
-          snykInstallation: 'snyk-latest',
-          snykTokenId: 'snyk',
+          snykInstallation: 'SnykStep’',
+          snykTokenId: 'my-project-snyk-api-token',
           targetFile: 'https://github.com/berenicehdr/robovac.git',
           failOnIssues: 'true'
            )
