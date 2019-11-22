@@ -1,24 +1,15 @@
 pipeline {
   agent any
   stages {
-    stage('snyk dependency scan') {
-      tools {
-        snyk 'SnykStep'
-      }	
-      steps {
-        snykSecurity(
-          organisation: 'cloudbees',
-          severity: 'high',
-          snykInstallation: 'SnykStep’',
-          snykTokenId: 'my-project-snyk-api-token',
-          targetFile: 'https://github.com/berenicehdr/robovac.git',
-          failOnIssues: 'true'
-           )
-	  sh '''
-         snyk test
-             '''
-        
-      }
-    }
+    stage('snyk dependency scan') {  
+                        steps {
+              snykSecurity projectName: 'project-js',
+              severity: 'high',
+              snykInstallation: 'Please define a Snyk installation in the Jenkins Global Tool Configuration. This task will not run without a Snyk installation.',
+              snykTokenId: 'my-project-snyk-api-token',
+               targetFile: '/home/ec2-user/robovac'
+                 
+            }
+         }
   }
 }
