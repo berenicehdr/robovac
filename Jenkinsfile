@@ -7,7 +7,7 @@ pipeline {
               severity: 'high',
               snykInstallation: 'SynkStep',
               snykTokenId: 'my-project-snyk-api-token',
-               targetFile: '/home/ec2-user/robovac'
+               targetFile: 'https://github.com/berenicehdr/robovac.git'
                  
             }
          }
